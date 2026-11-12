@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PENELITIAN MANDIRI INDEPENDEN: JARINGAN KUASA DI BALIK LISTYO SIGIT</title>
+<style>
+:root {
+  --bg:    #030509;
+  --bg2:   #07090f;
+  --bg3:   #0b0e18;
+  --brd:   #18212e;
+  --txt:   #bac9db;
+  --red:   #ff3030;
+  --ora:   #ff8800;
+  --yel:   #ffd000;
+  --grn:   #00ff7a;
+  --cyn:   #00e0ff;
+  --blu:   #3a7eff;
+  --pur:   #cc33ff;
+  --pnk:   #ff33bb;
+  --wht:   #ffffff;
+  --dim:   #3d4f63;
+}
+:root[data-theme="light"]{--bg:#030509;--bg2:#07090f;--bg3:#0b0e18;--brd:#18212e;--txt:#bac9db;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#030509;--bg2:#07090f;--bg3:#0b0e18;--brd:#18212e;--txt:#bac9db;}}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:'Courier New',monospace;
+  padding:12px 18px;
+  padding-top:calc(env(safe-area-inset-top,0px) + 12px);
+  padding-bottom:calc(env(safe-area-inset-bottom,0px) + 20px);
+  max-width:960px;margin:0 auto;line-height:1.65;font-size:13.5px;
+}
+/* ── TYPOGRAPHY ─────────────────────────────── */
+h1{color:var(--red);text-align:center;font-size:1.05em;padding:11px 14px;margin:14px 0;
+   border:2px solid var(--red);text-transform:uppercase;letter-spacing:1.5px;
+   box-shadow:0 0 18px rgba(255,48,48,.35);}
+.subtitle{text-align:center;color:var(--pnk);font-size:.82em;margin:-8px 0 16px;}
+h2{color:var(--yel);font-size:.97em;margin:22px 0 9px;padding:6px 11px;
+   border-left:4px solid var(--yel);background:rgba(255,208,0,.04);text-transform:uppercase;}
+h3{color:var(--cyn);font-size:.93em;margin:13px 0 6px;padding:3px 8px;
+   border-left:3px solid var(--cyn);}
+h4{color:var(--ora);font-size:.9em;margin:10px 0 5px;}
+p{margin:7px 0;text-align:justify;}
+ul{margin:5px 0 5px 18px;}li{margin:3px 0;}
+/* ── DIAGRAMS ────────────────────────────────── */
+pre.d{
+  background:var(--bg2);border:1px solid var(--brd);
+  padding:11px 13px;margin:14px 0;overflow-x:auto;
+  font-size:.77em;line-height:1.38;border-radius:3px;
+}
+/* ── COLOR HELPERS ───────────────────────────── */
+.r{color:var(--red);font-weight:700;}
+.o{color:var(--ora);font-weight:700;}
+.y{color:var(--yel);font-weight:700;}
+.g{color:var(--grn);}
+.c{color:var(--cyn);}
+.bl{color:var(--blu);}
+.pu{color:var(--pur);}
+.pk{color:var(--pnk);}
+.w{color:var(--wht);font-weight:700;}
+.dm{color:var(--dim);}
+/* ── BOXES ───────────────────────────────────── */
+.box-r{border:1px solid var(--red);padding:9px 13px;margin:9px 0;background:rgba(255,48,48,.04);}
+.box-o{border:1px solid var(--ora);padding:9px 13px;margin:9px 0;background:rgba(255,136,0,.04);}
+.box-y{border:1px solid var(--yel);padding:9px 13px;margin:9px 0;background:rgba(255,208,0,.04);}
+.box-g{border:1px solid var(--grn);padding:9px 13px;margin:9px 0;background:rgba(0,255,122,.03);}
+.box-c{border:1px solid var(--cyn);padding:9px 13px;margin:9px 0;background:rgba(0,224,255,.03);}
+.box-p{border:1px solid var(--pur);padding:9px 13px;margin:9px 0;background:rgba(204,51,255,.03);}
+/* ── ACTOR CARDS ─────────────────────────────── */
+.actor{background:var(--bg3);border:1px solid var(--brd);border-left:3px solid var(--cyn);
+       padding:9px 13px;margin:7px 0;}
+.an{color:var(--wht);font-weight:700;font-size:.97em;}
+.at{color:var(--yel);font-size:.85em;}
+.al{color:var(--ora);font-size:.84em;}
+.ag{color:var(--grn);font-size:.83em;}
+.ap{color:var(--pur);font-size:.83em;}
+/* ── MISC ────────────────────────────────────── */
+.sep{border-top:1px solid var(--brd);margin:16px 0;text-align:center;
+     color:var(--dim);font-size:.78em;padding-top:5px;}
+.alert{border:1px solid var(--red);padding:9px 12px;margin:12px 0;
+       background:rgba(255,48,48,.06);color:var(--red);}
+.conclusion{border:2px solid var(--red);padding:14px;margin:18px 0;
+            background:rgba(255,48,48,.05);}
+.sm{font-size:.8em;color:var(--dim);}
+.ts{color:var(--pnk);font-size:.78em;}
+.ind{padding-left:20px;border-left:2px solid var(--brd);margin:6px 0;}
+</style>
+</head>
+<body>
+
+<h1>⚠ PENELITIAN MANDIRI INDEPENDEN ⚠<br>JARINGAN KUASA DI BALIK LISTYO SIGIT:<br>DARI GLOBAL HINGGA YOGYAKARTA</h1>
+<div class="subtitle">Analisis Komprehensif · November 2026 · Dokumen Penelitian</div>
+
+<div class="box-r">
+<span class="r">◉ PERINGATAN ANALISIS:</span> Dokumen ini merupakan penelitian mandiri independen yang menghimpun, memetakan, dan menganalisis seluruh jaringan aktor, motif, mekanisme operasi, dan dampak yang terkait dengan kasus dugaan penyadapan ilegal dan penangkapan mantan Kapolri Listyo Sigit Prabowo. Semua nama yang disebut adalah figur publik dalam kapasitas jabatan publik mereka.
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<h2>▶ RINGKASAN EKSEKUTIF</h2>
+
+<p>Penangkapan mantan Kapolri Listyo Sigit Prabowo pada November 2026 bukan sekadar skandal hukum biasa. Ini adalah titik ledak dari operasi intelijen tercanggih yang pernah dijalankan di dalam tubuh Republik — sebuah konspirasi lintas-strata yang melibatkan kekuatan global, oligarki domestik, jaringan politik lama, dan aparat keamanan yang bertindak di luar mandat konstitusionalnya.</p>
+
+<p>Inti persoalannya sederhana namun sangat serius: Seorang Kapolri aktif, Listyo Sigit Prabowo, disinyalir mengoperasikan sistem penyadapan ilegal berskala masif menggunakan teknologi LIMS (Lawful Interception Management System) terhadap lebih dari 6.000 nomor telepon — termasuk lingkar pertama istana kepresidenan Prabowo. Mustahil seorang Kapolri berani dan punya inisiatif menyadap presiden dan pejabat tinggi negaranya sendiri tanpa ada perintah dari atas dan imbalan yang sangat besar.</p>
+
+<p>Penelitian ini membedah lapisan demi lapisan siapa yang memerintah, siapa yang membiayai, siapa yang diuntungkan, bagaimana datanya mengalir, dan mengapa Yogyakarta menjadi medan operasi berikutnya pasca penangkapan Listyo.</p>
+
+<div class="sep">════════════════════════════════════════════════════</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<h2>🗺 BAGAN ALUR I — PETA KUASA GLOBAL KE INDONESIA (MASTER DIAGRAM)</h2>
+
+<pre class="d"><span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>                     <span class="r">████  LAPIS 1: KEKUATAN GLOBAL  ████</span>                       <span class="dm">║</span>
+<span class="dm">╠══════════════════╦══════════════════╦════════════════════════════════════════╣</span>
+<span class="dm">║</span>  <span class="r">▶ CIA / AMERICA</span> <span class="dm">║</span> <span class="r">▶ MOSSAD / ISRAEL</span><span class="dm">║</span>    <span class="r">▶ MSS / PLA INTEL (TIONGKOK)</span>       <span class="dm">║</span>
+<span class="dm">║</span>  Kepentingan     <span class="dm">║</span> Produsen & Supplier<span class="dm">║</span>  Kepentingan Geopolitik             <span class="dm">║</span>
+<span class="dm">║</span>  Geopolitik      <span class="dm">║</span> Alat Sadap LIMS  <span class="dm">║</span>  Lindungi Jaringan Taipan & Mitra  <span class="dm">║</span>
+<span class="dm">║</span>  Kuasai Sumber   <span class="dm">║</span> (diduga dari     <span class="dm">║</span>  Gagalkan PANDA BOND & kedekatan   <span class="dm">║</span>
+<span class="dm">║</span>  Daya Indonesia  <span class="dm">║</span>  Elbit/NSO Group)<span class="dm">║</span>  Prabowo dgn AS                    <span class="dm">║</span>
+<span class="dm">╚══════════╤═══════╩══════════╤════════╩════════════════════════╤═══════════════╝</span>
+           <span class="dm">│</span>                  <span class="dm">│</span>                                <span class="dm">│</span>
+           <span class="r">│ DESTABILISASI    │ TEKNOLOGI SADAP               │ PROXY EKONOMI</span>
+           <span class="dm">└──────────────────┼────────────────────────────────┘</span>
+                              <span class="dm">│</span>
+                              <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>               <span class="r">████  LAPIS 2: ELIT GLOBAL BARAT  ████</span>                        <span class="dm">║</span>
+<span class="dm">║</span>    <span class="r">WEF (World Economic Forum)</span> · <span class="r">IMF</span> · <span class="r">World Bank</span> · <span class="r">George Soros / OSF</span>     <span class="dm">║</span>
+<span class="dm">║</span>  Agenda: Great Reset · Kendali Sumber Daya Alam Indonesia · Jerat Utang     <span class="dm">║</span>
+<span class="dm">║</span>  Instrumen: Dana ke Media, Aktivis, LSM, Lembaga Riset Indonesia            <span class="dm">║</span>
+<span class="dm">╚══════════════════════════════════════╤════════════════════════════════════════╝</span>
+                                       <span class="dm">│</span>
+                   <span class="r">│ DANA & NARASI KOGNITIF</span>
+                                       <span class="dm">│</span>
+                                       <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>          <span class="o">████  LAPIS 3: OLIGARKI TIONGHOA-INDONESIA (9 NAGA)  ████</span>         <span class="dm">║</span>
+<span class="dm">║</span>  Taipan kelas kakap mayoritas etnis Tionghoa yang mengendalikan sektor       <span class="dm">║</span>
+<span class="dm">║</span>  strategis: <span class="o">SAWIT ILEGAL · TAMBANG/NIKEL · BBM · JUDI ONLINE · NARKOBA</span>    <span class="dm">║</span>
+<span class="dm">║</span>  Instrumen: Under-invoicing · Transfer Pricing · Perusahaan Cangkang         <span class="dm">║</span>
+<span class="dm">║</span>  <span class="o">Node Transit: SINGAPURA</span> — parkir uang, transit data sadapan                <span class="dm">║</span>
+<span class="dm">╚═══════════════════════════╤═══════════════════════════════════════════════════╝</span>
+                            <span class="dm">│</span>
+                   <span class="o">│ SIMBIOSIS MUTUALISME</span>
+                   <span class="o">│ Setoran upeti raksasa ↕ Perlindungan bisnis haram</span>
+                            <span class="dm">│</span>
+                            <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>              <span class="y">████  LAPIS 4: JOKO WIDODO (JOKOWI)  ████</span>                     <span class="dm">║</span>
+<span class="dm">║</span>  Presiden RI 2014–2024 · HUB PENGHUBUNG antara kekuatan asing & domestik     <span class="dm">║</span>
+<span class="dm">║</span>  Pemberi mandat kepada Polri, TNI, BIN — termasuk mengangkat Listyo Sigit    <span class="dm">║</span>
+<span class="dm">║</span>  Simbiosis dengan oligarki sawit, tambang, nikel, dan taipan Tionghoa        <span class="dm">║</span>
+<span class="dm">╚═══╤════════════════════════╤══════════════════════════╤══════════════════════╝</span>
+    <span class="dm">│</span>                        <span class="dm">│</span>                          <span class="dm">│</span>
+    <span class="dm">▼</span>                        <span class="dm">▼</span>                          <span class="dm">▼</span>
+<span class="dm">╔══════════════════╗  ╔═══════════════════════╗  ╔═══════════════════════════╗</span>
+<span class="dm">║</span> <span class="g">LUHUT BINSAR P.</span>  <span class="dm">║</span>  <span class="dm">║</span> <span class="g">AM HENDROPRIYONO</span>       <span class="dm">║</span>  <span class="dm">║</span> <span class="g">TITO KARNAVIAN</span>            <span class="dm">║</span>
+<span class="dm">║</span> Menko Marves     <span class="dm">║</span>  <span class="dm">║</span> Mantan Kepala BIN       <span class="dm">║</span>  <span class="dm">║</span> Mantan Kapolri (2019–21)  <span class="dm">║</span>
+<span class="dm">║</span> "Aktor Proxy     <span class="dm">║</span>  <span class="dm">║</span> "Aktor Proxy Pengendali" <span class="dm">║</span>  <span class="dm">║</span> Mendagri era Jokowi       <span class="dm">║</span>
+<span class="dm">║</span>  Pengendali"     <span class="dm">║</span>  <span class="dm">║</span> Olah hasil sadapan       <span class="dm">║</span>  <span class="dm">║</span> Bentuk Satgas Merah Putih <span class="dm">║</span>
+<span class="dm">║</span> Dekat aksi intel <span class="dm">║</span>  <span class="dm">║</span> Dekat aksi intelijen     <span class="dm">║</span>  <span class="dm">║</span>                           <span class="dm">║</span>
+<span class="dm">╚═════════╤════════╝  ╚══════════╤════════════╝  ╚═══════════╤═══════════════╝</span>
+          <span class="dm">└──────────────────────┼────────────────────────────┘</span>
+                                 <span class="dm">│</span>
+                     <span class="g">│ MANDAT OPERASIONAL</span>
+                                 <span class="dm">│</span>
+                                 <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>             <span class="g">████  LAPIS 5: LISTYO SIGIT PRABOWO  ████</span>                       <span class="dm">║</span>
+<span class="dm">║</span>  Kapolri RI 2021–2024 · Diangkat langsung oleh Jokowi                        <span class="dm">║</span>
+<span class="dm">║</span>  Masih menjabat di pemerintahan Prabowo                                      <span class="dm">║</span>
+<span class="dm">║</span>  Diduga mengoperasikan LIMS secara ilegal terhadap 6.000+ nomor              <span class="dm">║</span>
+<span class="dm">║</span>  <span class="r">→ DITANGKAP November 2026</span>                                                   <span class="dm">║</span>
+<span class="dm">╚════════╤══════════════════════╤═══════════════════╤══════════════════════════╝</span>
+         <span class="dm">│</span>                      <span class="dm">│</span>                   <span class="dm">│</span>
+         <span class="dm">▼</span>                      <span class="dm">▼</span>                   <span class="dm">▼</span>
+<span class="dm">╔════════════════╗    ╔═════════════════════╗    ╔═══════════════════════════╗</span>
+<span class="dm">║</span> <span class="c">FERDY SAMBO</span>    <span class="dm">║</span>    <span class="dm">║</span> <span class="c">AHMAD LUTHFI</span>         <span class="dm">║</span>    <span class="dm">║</span> <span class="c">ANDIKA PERKASA</span>            <span class="dm">║</span>
+<span class="dm">║</span> Kadiv Propam   <span class="dm">║</span>    <span class="dm">║</span> Kapolda Jateng        <span class="dm">║</span>    <span class="dm">║</span> Mantan Panglima TNI       <span class="dm">║</span>
+<span class="dm">║</span> Pimpin Satgas  <span class="dm">║</span>    <span class="dm">║</span> → Dimutasi Jokowi     <span class="dm">║</span>    <span class="dm">║</span> Komponen TNI dalam        <span class="dm">║</span>
+<span class="dm">║</span> Merah Putih    <span class="dm">║</span>    <span class="dm">║</span>   jadi Gubernur Jateng<span class="dm">║</span>    <span class="dm">║</span> konstelasi kekuasaan      <span class="dm">║</span>
+<span class="dm">║</span> Kasus KM-50    <span class="dm">║</span>    <span class="dm">║</span> Teman dekat Jokowi    <span class="dm">║</span>    <span class="dm">║</span>                           <span class="dm">║</span>
+<span class="dm">║</span> Kematian KPPS  <span class="dm">║</span>    <span class="dm">╚═════════════════════╝</span>    <span class="dm">╚═══════════════════════════╝</span>
+<span class="dm">╚════════╤═══════╝</span>
+         <span class="dm">│</span>
+         <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>                  <span class="c">████  LAPIS 6: ALAT SADAP LIMS  ████</span>                       <span class="dm">║</span>
+<span class="dm">║</span>  Lawful Interception Management System — teknologi Israel                    <span class="dm">║</span>
+<span class="dm">║</span>  6.000+ nomor telepon disadap ILEGAL: ring-1 Prabowo, menteri, pengusaha     <span class="dm">║</span>
+<span class="dm">║</span>  <span class="c">SMS · Rekaman suara · Metadata · Lokasi real-time via sinyal BTS</span>           <span class="dm">║</span>
+<span class="dm">╚══════════════════════════╤════════════════════════════════════════════════════╝</span>
+                           <span class="dm">│</span>
+            <span class="dm">┌──────────────┼─────────────────────┐</span>
+            <span class="dm">│</span>              <span class="dm">│</span>                     <span class="dm">│</span>
+            <span class="dm">▼</span>              <span class="dm">▼</span>                     <span class="dm">▼</span>
+<span class="dm">╔═══════════════════╗ ╔═══════════════════╗ ╔═══════════════════════════════╗</span>
+<span class="dm">║</span> <span class="bl">OLIGARKI LOKAL</span>   <span class="dm">║</span> <span class="bl">SINGAPURA (Transit)</span><span class="dm">║</span> <span class="bl">ASING: AS · Israel · China</span>   <span class="dm">║</span>
+<span class="dm">║</span> Sawit/Tambang/   <span class="dm">║</span> Parkir uang &        <span class="dm">║</span> Beli salinan data bocoran   <span class="dm">║</span>
+<span class="dm">║</span> BBM/Judi beli    <span class="dm">║</span> transit data        <span class="dm">║</span> untuk kepentingan geopolitik <span class="dm">║</span>
+<span class="dm">║</span> akses info kebij <span class="dm">║</span> perusahaan cangkang <span class="dm">║</span>                               <span class="dm">║</span>
+<span class="dm">╚═══════════════════╝ ╚═══════════════════╝ ╚═══════════════════════════════╝</span>
+            <span class="dm">│</span>              <span class="dm">│</span>                     <span class="dm">│</span>
+            <span class="dm">└──────────────┼─────────────────────┘</span>
+                           <span class="dm">│</span>
+                           <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>              <span class="pu">████  LAPIS 7: 4 SAYAP OPERASI  ████</span>                           <span class="dm">║</span>
+<span class="dm">║</span>  <span class="pu">SAYAP 1</span>: Demo anarkis bayaran · Media lokal & internasional (bad framing)  <span class="dm">║</span>
+<span class="dm">║</span>  <span class="pu">SAYAP 2</span>: Cognitive warfare · Influencer · Artis · Mahasiswa · Ekonom       <span class="dm">║</span>
+<span class="dm">║</span>  <span class="pu">SAYAP 3</span>: Kuda Trojan · Penyusupan penjahat ke kabinet/ring-1               <span class="dm">║</span>
+<span class="dm">║</span>  <span class="pu">SAYAP 4</span>: Opini pakar · Akademisi · Lembaga survei · Politisi busuk         <span class="dm">║</span>
+<span class="dm">╚══════════════════════════════╤════════════════════════════════════════════════╝</span>
+                               <span class="dm">│</span>
+                               <span class="dm">▼</span>
+<span class="dm">╔═══════════════════════════════════════════════════════════════════════════════╗</span>
+<span class="dm">║</span>           <span class="pk">████  TARGET AKHIR: PRABOWO JATUH SEBELUM 2029  ████</span>              <span class="dm">║</span>
+<span class="dm">║</span>  Distrust massal · Polarisasi ekstrem · Kabinet melemah · Chaos nasional     <span class="dm">║</span>
+<span class="dm">║</span>  <span class="pk">→ YOGYAKARTA RUSUH 10–11 NOVEMBER 2026 — REAKSI PASCA LISTYO TERTANGKAP</span>  <span class="dm">║</span>
+<span class="dm">╚═══════════════════════════════════════════════════════════════════════════════╝</span></pre>
+
+<div class="sep">════════════════ ANALISIS MENDALAM PER LAPIS ════════════════</div>
+
+<!-- ════════════ LAPIS 1 ════════════ -->
+<h2>🔴 BAGIAN A — LAPIS 1 & 2: KEKUATAN GLOBAL</h2>
+
+<h3>A.1 — Amerika Serikat & CIA</h3>
+<p>Amerika Serikat menempatkan Indonesia sebagai salah satu target utama stabilitas kawasan Asia Tenggara. Kekayaan sumber daya alam Indonesia — nikel, timah, boksit, blok Natuna, minyak, gas — menjadikannya "aset paling seksi" di papan catur geopolitik Indo-Pasifik. Setiap kebijakan yang mengarah pada nasionalisasi sumber daya, kebijakan mandiri energi, atau penolakan terhadap skema pinjaman IMF/World Bank otomatis bertentangan dengan kepentingan Washington.</p>
+<p>Pola historis yang terbaca: ketika seorang pemimpin nasional berusaha menarik kembali kekayaan negaranya yang selama ini dinikmati pihak asing — seperti yang dilakukan Prabowo melalui kebijakan ekspor satu pintu, sita 3,3 juta hektar sawit ilegal, dan Dana Antara — sistem global melakukan <em>auto rejection</em>. Polanya selalu sama: destabilisasi dari dalam.</p>
+
+<h3>A.2 — Israel & Mossad: Produsen LIMS</h3>
+<div class="box-r">
+<span class="r">▶ TITIK KRITIS:</span> Alat sadap LIMS yang digunakan untuk menyadap 6.000+ nomor telepon di Indonesia, termasuk ring-1 Presiden Prabowo, diperoleh dari produsen teknologi Israel. Teknologi ini termasuk dalam kategori surveillance-grade yang hanya dijual kepada pemerintah atau lembaga dengan otorisasi setingkat negara — mustahil didapat tanpa jaringan hubungan diplomatik-intelijen tingkat tinggi.
+</div>
+<p>Israel, melalui jaringan intelijen Mossad dan industri siber nasionalnya (perusahaan seperti NSO Group yang mengembangkan Pegasus, atau Elbit Systems), adalah produsen utama alat penyadapan tingkat lanjut. LIMS — Lawful Interception Management System — adalah infrastruktur yang memungkinkan intersepsi komunikasi seluler secara masif, termasuk SMS, panggilan suara, dan metadata lokasi melalui sinyal BTS.</p>
+<p>Indonesia bukan pertama kali berurusan dengan teknologi ini. Sejumlah laporan intelijen internal menunjukkan bahwa alat-alat serupa sudah masuk jauh sebelum era Prabowo. Yang berbeda kali ini adalah skala penggunaannya dan siapa targetnya: ring-1 Presiden itu sendiri.</p>
+
+<h3>A.3 — Tiongkok & Kepentingan Ganda</h3>
+<p>Tiongkok memainkan peran berlapis dalam konstelasi ini. Di satu sisi, ada hubungan ekonomi yang sangat dalam antara taipan Tionghoa-Indonesia dengan jaringan bisnis dan negara Tiongkok. Di sisi lain, ada faksi intelijen Tiongkok (MSS/PLA Intel) yang punya kepentingan tersendiri: menggagalkan rencana Prabowo menerbitkan Panda Bond dan membangun kedekatan dengan Washington.</p>
+<p>Manuver strategisnya: faksi intelijen Tiongkok tertentu memanfaatkan data kebobrokan domestik Indonesia untuk mencegah Jakarta merapat ke orbit AS. Caranya — memastikan lingkaran mantan presiden (baca: Jokowi) tetap lebih dekat dengan Beijing dibanding pemerintahan Prabowo yang baru.</p>
+<p>Ini bukan konflik China vs Indonesia. Ini adalah konflik antara dua faksi kepentingan Tiongkok yang berbeda: satu yang ingin Indonesia tetap dalam ekosistem mereka, satu lagi yang bermain di papan geopolitik global lebih besar.</p>
+
+<h3>A.4 — WEF, George Soros, dan Infiltrasi Narasi</h3>
+<p>Agenda <em>Great Reset</em> yang diorkestrasikan World Economic Forum menginginkan kendali atas rantai suplai bahan mentah global. Indonesia, dengan cadangan nikel terbesar dunia dan posisi strategis di jalur Selat Malaka, adalah target akuisisi aset yang paling diprioritaskan.</p>
+<p>Instrumen klasik yang digunakan: jerat utang melalui IMF dan World Bank — mendandani pinjaman sebagai "bantuan pembangunan" sambil memasukkan klausul liberalisasi yang menggerogoti kedaulatan ekonomi. Ketika jalur ini ditolak oleh pemerintahan Prabowo, opsi berikutnya adalah menciptakan instabilitas sosial dari dalam.</p>
+<p>Dana dari jaringan Soros Foundation (Open Society Foundation/OSF) dan lembaga serupa diketahui mengalir ke sejumlah media, lembaga riset, dan aktivis di Indonesia. Tujuannya: memposisikan mereka sebagai "pembela demokrasi" sambil secara sistematik menghancurkan kepercayaan publik terhadap pemerintahan yang berani menolak agenda asing.</p>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ LAPIS 2: OLIGARKI ════════════ -->
+<h2>🟠 BAGIAN B — LAPIS 3: OLIGARKI TIONGHOA-INDONESIA & 9 NAGA</h2>
+
+<pre class="d"><span class="o">╔══════════════════════════════════════════════════════════════════╗</span>
+<span class="o">║           BAGAN ALUR II: JARINGAN 9 NAGA / TAIPAN               ║</span>
+<span class="o">╠══════════════╦══════════════╦═══════════════╦═════════════════════╣</span>
+<span class="o">║ SAWIT ILEGAL ║TAMBANG/NIKEL ║ JUDI ONLINE   ║ BBM & MIGAS GELAP   ║</span>
+<span class="o">╠══════════════╩══════════════╩═══════════════╩═════════════════════╣</span>
+<span class="o">║   Under-invoicing (manipulasi nilai faktur ekspor)               ║</span>
+<span class="o">║   Transfer Pricing (alihkan keuntungan ke perusahaan cangkang)   ║</span>
+<span class="o">║   Potensi kerugian negara: Rp 15.000 TRILIUN                    ║</span>
+<span class="o">╠══════════════════════════════════════════════════════════════════╣</span>
+<span class="o">║            NODE TRANSIT: SINGAPURA                               ║</span>
+<span class="o">║   • Parkir uang tunai raksasa di bank-bank Singapura             ║</span>
+<span class="o">║   • Perusahaan cangkang sebagai selubung aset                    ║</span>
+<span class="o">║   • No-extradition agreement / safe haven hukum                  ║</span>
+<span class="o">║   • Pasar transit data sadapan LIMS ke pembeli asing             ║</span>
+<span class="o">╠══════════════════════════════════════════════════════════════════╣</span>
+<span class="o">║   KEBUTUHAN TERHADAP INTEL SADAPAN:                              ║</span>
+<span class="o">║   → Kebijakan pajak/sita aset bocor sebelum eksekusi             ║</span>
+<span class="o">║   → Taipan pindahkan uang tunai SEBELUM aparat bergerak          ║</span>
+<span class="o">║   → Intervensi lobi pejabat/menteri sebelum kebijakan diumumkan  ║</span>
+<span class="o">╚══════════════════════════════════════════════════════════════════╝</span></pre>
+
+<p>Kelompok oligarki yang selama puluhan tahun menikmati ekosistem bisnis haram di Indonesia adalah pihak yang paling panik ketika Prabowo mulai menjalankan agenda bersih-bersihnya. Rencana sita 3,3 juta hektar sawit ilegal, kebijakan ekspor satu pintu lewat BUMN, Dana Antara yang menyumbat kebocoran devisa — semua ini secara langsung mengancam mesin uang mereka.</p>
+
+<p>Maka kebutuhan akan data sadapan bukan sekadar keinginan — ini adalah kebutuhan survival bisnis mereka. Dengan akses ke bocoran LIMS, mereka tahu kapan harus pindah aset, siapa menteri yang akan diganti, kebijakan apa yang sedang disiapkan. Ini memberi mereka keunggulan informasi yang tak ternilai.</p>
+
+<p>Singapura adalah jantung operasi keuangan gelap ini. Kebijakan ekspor satu pintu Prabowo yang "mengganggu" skema transfer pricing mereka membuat Singapura sebagai negara yang paling terpukul ekonominya — dan karena itu, menjadi salah satu pihak yang paling berkepentingan agar Prabowo tidak bertahan.</p>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ LAPIS 4: JOKOWI ════════════ -->
+<h2>🟡 BAGIAN C — LAPIS 4: JOKO WIDODO — SUMBU PENGHUBUNG</h2>
+
+<pre class="d"><span class="y">╔════════════════════════════════════════════════════════════════╗</span>
+<span class="y">║           BAGAN ALUR III: JOKOWI SEBAGAI NEXUS                 ║</span>
+<span class="y">╠════════════════════════════════════════════════════════════════╣</span>
+<span class="y">║</span>  <span class="y">JOKOWI</span>                                                       <span class="y">║</span>
+<span class="y">║</span>  Presiden 2014–2024 | Hub antara asing, oligarki, & aparatur  <span class="y">║</span>
+<span class="y">╠══════════════╦══════════════════╦═══════════════════════════════╣</span>
+<span class="y">║</span>  ANGKAT &    <span class="y">║</span>   CIPTAKAN &      <span class="y">║</span>  MUTASI & POSISIKAN          <span class="y">║</span>
+<span class="y">║</span>  LINDUNGI    <span class="y">║</span>   LINDUNGI        <span class="y">║</span>  SEBAGAI ALAT               <span class="y">║</span>
+<span class="y">╠══════════════╬══════════════════╬═══════════════════════════════╣</span>
+<span class="y">║</span> • Listyo     <span class="y">║</span>  • Ruang gerak   <span class="y">║</span>  • Ahmad Luthfi             <span class="y">║</span>
+<span class="y">║</span>   Sigit      <span class="y">║</span>    oligarki sawit<span class="y">║</span>    Kapolda Jateng →          <span class="y">║</span>
+<span class="y">║</span>   sbg Kapolri<span class="y">║</span>  • Judi online   <span class="y">║</span>    Gubernur Jateng           <span class="y">║</span>
+<span class="y">║</span> • Tito       <span class="y">║</span>  • Tambang ilegal<span class="y">║</span>    (teman dekat Jokowi)      <span class="y">║</span>
+<span class="y">║</span>   Karnavian  <span class="y">║</span>  • Narkoba       <span class="y">║</span>  • Andika Perkasa sbg       <span class="y">║</span>
+<span class="y">║</span>   sbg Kapolri<span class="y">║</span>                  <span class="y">║</span>    Panglima TNI             <span class="y">║</span>
+<span class="y">╠══════════════╩══════════════════╩═══════════════════════════════╣</span>
+<span class="y">║</span>  <span class="y">PERAN WARIS KE ERA PRABOWO:</span>                                   <span class="y">║</span>
+<span class="y">║</span>  Listyo Sigit tetap menjabat di pemerintahan Prabowo →        <span class="y">║</span>
+<span class="y">║</span>  KUDA TROJAN yang sudah terpasang di dalam sistem             <span class="y">║</span>
+<span class="y">╚════════════════════════════════════════════════════════════════╝</span></pre>
+
+<p>Joko Widodo bukan hanya mantan presiden — ia adalah arsitek dari jaringan loyalitas yang kini mencengkeram tubuh aparat keamanan Indonesia. Pemahaman tentang siapa Listyo Sigit dan mengapa ia berbuat seperti yang dituduhkan kepadanya tidak bisa dilepaskan dari siapa yang mengangkat, melindungi, dan memberinya mandat selama sepuluh tahun kekuasaan Jokowi.</p>
+
+<p>Pola yang terbaca sangat jelas: setiap Kapolri era Jokowi — dari Tito Karnavian hingga Listyo Sigit — menjalankan fungsi ganda: pelindung kepentingan hukum negara secara formal, dan pelindung ekosistem oligarki yang menopang kekuasaan Jokowi secara informal.</p>
+
+<p>Kecil kemungkinan Listyo Sigit berani punya inisiatif sendiri untuk menyadap seorang presiden dan puluhan pejabat tinggi tanpa ada yang menyuruhnya dan menjanjikan imbalan yang sangat besar. Yang memerintah ada di atas Listyo. Dan siapa yang ada di atas Listyo dalam hierarki loyalitas yang sesungguhnya — jawabannya sudah sangat jelas bagi mereka yang mengikuti peta kekuasaan Indonesia satu dekade terakhir.</p>
+
+<p>Kini Gibran Rakabuming — anak Jokowi, Wakil Presiden RI — berada di posisi terjepit. Penangkapan Listyo Sigit secara langsung menekan Jokowi, dan karena Gibran adalah perpanjangan tangan Jokowi di dalam pemerintahan Prabowo, tekanan itu mengenai keduanya sekaligus.</p>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ LAPIS 5: POLRI ════════════ -->
+<h2>🟢 BAGIAN D — LAPIS 5: JARINGAN POLRI — DARI KAPOLRI KE OPERASI</h2>
+
+<pre class="d"><span class="g">╔══════════════════════════════════════════════════════════════════════╗</span>
+<span class="g">║         BAGAN ALUR IV: RANTAI KOMANDO POLRI DALAM JARINGAN           ║</span>
+<span class="g">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="g">║</span>  <span class="g">TITO KARNAVIAN</span> (Kapolri 2016–2019 → Mendagri)                     <span class="g">║</span>
+<span class="g">║</span>  ↳ Membangun fondasi Satgas Merah Putih                              <span class="g">║</span>
+<span class="g">║</span>  ↳ Koneksi langsung ke jaringan intelijen Jokowi                     <span class="g">║</span>
+<span class="g">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="g">║</span>  <span class="g">LISTYO SIGIT PRABOWO</span> (Kapolri 2021–2024)                           <span class="g">║</span>
+<span class="g">║</span>  ↳ Diangkat Jokowi · Ditugaskan mengelola stabilitas politik         <span class="g">║</span>
+<span class="g">║</span>  ↳ Diduga operasikan LIMS → 6.000+ nomor disadap                    <span class="g">║</span>
+<span class="g">║</span>  ↳ Data bocoran dijual/diteruskan ke oligarki & asing                <span class="g">║</span>
+<span class="g">║</span>  ↳ Masih menjabat era Prabowo → Kuda Trojan terpasang               <span class="g">║</span>
+<span class="g">║</span>  ↳ <span class="r">DITANGKAP November 2026</span>                                          <span class="g">║</span>
+<span class="g">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="g">║</span>  <span class="g">FERDY SAMBO</span> — Kadiv Propam Polri                                   <span class="g">║</span>
+<span class="g">║</span>  ↳ Pimpin <span class="r">SATGAS MERAH PUTIH</span> (di bawah mandat Tito/Listyo)         <span class="g">║</span>
+<span class="g">║</span>  ↳ Eksekusi <span class="r">KASUS KM-50</span>: pembunuhan anggota FPI                   <span class="g">║</span>
+<span class="g">║</span>  ↳ Terkait kematian ratusan KPPS dalam Pilpres Jokowi               <span class="g">║</span>
+<span class="g">║</span>  ↳ Instrumen kotor dari operasi keamanan-politik era Jokowi          <span class="g">║</span>
+<span class="g">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="g">║</span>  <span class="g">AHMAD LUTHFI</span>                                                       <span class="g">║</span>
+<span class="g">║</span>  ↳ Kapolda Jawa Tengah → teman dekat Jokowi                         <span class="g">║</span>
+<span class="g">║</span>  ↳ Dimutasi/dialihkan oleh Jokowi menjadi <span class="y">Gubernur Jawa Tengah</span>     <span class="g">║</span>
+<span class="g">║</span>  ↳ Transformasi karir: polisi → gubernur atas "titipan" kekuasaan   <span class="g">║</span>
+<span class="g">║</span>  ↳ Mekanisme "reward-and-position" khas jaringan loyalitas Jokowi   <span class="g">║</span>
+<span class="g">╚══════════════════════════════════════════════════════════════════════╝</span></pre>
+
+<div class="actor">
+  <div class="an">LISTYO SIGIT PRABOWO</div>
+  <div class="at">▶ Kapolri RI 2021–2024 | Jenderal Polisi</div>
+  <div class="al">▶ Diangkat Jokowi · Masih menjabat Prabowo · Ditangkap November 2026</div>
+  <div class="ag">▶ PERAN DALAM JARINGAN: Operator utama LIMS · Menjual/mendistribusikan data sadapan · Menjadi tameng perlindungan oligarki</div>
+  <div class="ap">▶ MOTIF: Ambisi kekuasaan · Memegang data hitam oligarki sebagai tameng · Diduga incar kursi presiden "negara bayangan"</div>
+</div>
+
+<div class="actor">
+  <div class="an">TITO KARNAVIAN</div>
+  <div class="at">▶ Kapolri RI 2016–2019 | Mendagri era Jokowi</div>
+  <div class="al">▶ Pendahulu Listyo · Pembangun fondasi Satgas Merah Putih</div>
+  <div class="ag">▶ PERAN: Mempersiapkan infrastruktur keamanan-politik yang kemudian diwarisi Listyo · Pengawas Pemilu Jokowi</div>
+</div>
+
+<div class="actor">
+  <div class="an">FERDY SAMBO</div>
+  <div class="at">▶ Kadiv Propam Polri | Irjen Polisi</div>
+  <div class="al">▶ Kepercayaan Listyo Sigit · Figur terkuat di Polri di luar Kapolri</div>
+  <div class="ag">▶ PERAN: Pimpin Satgas Merah Putih · Eksekutor kasus KM-50 (pembunuhan 6 anggota FPI/Laskar Islam di Jalan Tol KM 50 Jakarta–Cikampek) · Diduga terlibat rekayasa kematian ratusan petugas KPPS demi kemenangan Pilpres Jokowi</div>
+  <div class="ap">▶ CATATAN: Sambo akhirnya dijatuhi hukuman mati atas pembunuhan Brigadir J — namun jaringan operasinya jauh lebih luas dari kasus itu</div>
+</div>
+
+<div class="actor">
+  <div class="an">AHMAD LUTHFI</div>
+  <div class="at">▶ Mantan Kapolda Jawa Tengah → Gubernur Jawa Tengah</div>
+  <div class="al">▶ Teman dekat Jokowi · Dimutasi/dialihkan ke jabatan sipil oleh Jokowi</div>
+  <div class="ag">▶ PERAN: Contoh klasik mekanisme reward loyalitas Jokowi — polisi setia dikonversi menjadi pejabat daerah untuk memperkuat jaringan kekuasaan di daerah strategis (Jawa Tengah = basis kekuatan Jokowi)</div>
+</div>
+
+<div class="actor">
+  <div class="an">ANDIKA PERKASA</div>
+  <div class="at">▶ Mantan Panglima TNI | Jenderal TNI</div>
+  <div class="al">▶ Komponen TNI dalam konstelasi kekuasaan era Jokowi</div>
+  <div class="ag">▶ PERAN: Paralel dengan jaringan Polri dalam penguasaan instrumen keamanan negara · Bagian dari mekanisme checks-and-no-balances era Jokowi di mana puncak TNI dan Polri sama-sama berada dalam ekosistem loyalitas yang sama</div>
+</div>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ LAPIS 6: LIHMT ════════════ -->
+<h2>🟢 BAGIAN E — LAPIS 5B: LUHUT & HENDROPRIYONO — AKTOR PROXY PENGENDALI</h2>
+
+<pre class="d"><span class="g">╔═══════════════════════════════════════════════════════════════════╗</span>
+<span class="g">║      BAGAN ALUR V: LUHUT + HENDROPRIYONO — DUA PROXY ENGINE      ║</span>
+<span class="g">╠═══════════════════════════╦═══════════════════════════════════════╣</span>
+<span class="g">║   LUHUT BINSAR PANDJAITAN ║   AM HENDROPRIYONO                   ║</span>
+<span class="g">║   Menko Marves era Jokowi ║   Mantan Kepala BIN (Badan Intel     ║</span>
+<span class="g">║   "Lord" kekuatan ekonomi ║   Negara) · Sesepuh intelijen RI     ║</span>
+<span class="g">╠═══════════════════════════╬═══════════════════════════════════════╣</span>
+<span class="g">║   • Kendali atas proyek   ║   • Olah & analisis hasil sadapan    ║</span>
+<span class="g">║     strategis nasional    ║   • Arsitektur operasi intelijen      ║</span>
+<span class="g">║   • Jembatan ke kepenting-║   • Koneksi langsung ke CIA, Mossad, ║</span>
+<span class="g">║     an asing (nikel, EV)  ║     dan jaringan intelijen ASEAN     ║</span>
+<span class="g">║   • "Semua di bawah kontrol║  • Peta semua aktor — siapa         ║</span>
+<span class="g">║     Luhut" = kredo era     ║    kawan, siapa lawan               ║</span>
+<span class="g">║     Jokowi                ║                                      ║</span>
+<span class="g">╠═══════════════════════════╩═══════════════════════════════════════╣</span>
+<span class="g">║  Keduanya disebut sebagai "aktor proxy pengendali" yang banyak   ║</span>
+<span class="g">║  diketahui sangat dekat dengan aksi-aksi intelijen domestik.     ║</span>
+<span class="g">║  Kecil kemungkinan operasi sadap sekelas LIMS berjalan tanpa     ║</span>
+<span class="g">║  sepengetahuan atau restu dari kedua figur ini.                  ║</span>
+<span class="g">╚═══════════════════════════════════════════════════════════════════╝</span></pre>
+
+<div class="actor">
+  <div class="an">LUHUT BINSAR PANDJAITAN</div>
+  <div class="at">▶ Menko Kemaritiman & Investasi era Jokowi | Jenderal TNI Purn.</div>
+  <div class="al">▶ "The Man Behind the Throne" selama dekade Jokowi</div>
+  <div class="ag">▶ PERAN DALAM JARINGAN: Menjembatani kepentingan asing (terutama investasi nikel dan rantai pasok baterai EV global) dengan kebijakan domestik · Disebut sebagai salah satu aktor yang mengolah data sadapan untuk kepentingan operasi kekuasaan</div>
+  <div class="ap">▶ CATATAN: Koneksi bisnis Luhut yang sangat luas — dari konglomerat domestik hingga investor China, Korea, dan AS — menempatkannya sebagai simpul keuangan yang tak tertandingi dalam ekosistem kekuasaan Jokowi</div>
+</div>
+
+<div class="actor">
+  <div class="an">JENDERAL (PURN.) AM HENDROPRIYONO</div>
+  <div class="at">▶ Mantan Kepala BIN (Badan Intelijen Negara) | Mentor intelijen nasional</div>
+  <div class="al">▶ Figur bayangan di balik arsitektur intelijen Indonesia modern</div>
+  <div class="ag">▶ PERAN DALAM JARINGAN: Diduga berperan dalam pengolahan dan analisis data sadapan LIMS · Koneksi mendalam dengan komunitas intelijen global termasuk CIA dan Mossad · Punya kapabilitas untuk mengorkestrasi operasi intelijen berlapis yang jauh melampaui kemampuan individual Listyo Sigit</div>
+  <div class="ap">▶ KESIMPULAN KRITIS: Listyo Sigit adalah operator. Hendropriyono dan Luhut adalah — dalam analisis ini — arsitek dan pengendali dari dimensi yang lebih dalam.</div>
+</div>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ AKTOR POLITIK ════════════ -->
+<h2>🟡 BAGIAN F — AKTOR POLITIK PENDUKUNG JARINGAN</h2>
+
+<div class="actor">
+  <div class="an">PUAN MAHARANI</div>
+  <div class="at">▶ Ketua DPR RI | Putri Megawati Soekarnoputri | PDIP</div>
+  <div class="al">▶ Pengendali legislatif yang menentukan banyak agenda pembentukan dan penghambatan undang-undang</div>
+  <div class="ag">▶ PERAN DALAM JARINGAN: Peta penyadapan menyasar komunikasi ketua-ketua partai termasuk DPR · Mengetahui siapa yang bisa dibeli dan siapa yang melawan adalah data sadapan krusial · DPR sebagai palagan perang opini dan legislasi strategis</div>
+  <div class="ap">▶ Posisi Puan dalam ekosistem ini: sumber target sadapan sekaligus potensi kunci dalam scenario pergantian kekuasaan</div>
+</div>
+
+<div class="actor">
+  <div class="an">BUDI ARIE SETIADI</div>
+  <div class="at">▶ Ketua Umum Projo (relawan Jokowi) | Mantan Menkominfo</div>
+  <div class="al">▶ Figur yang membunyikan "alarm prediksi" soal kejatuhan Prabowo</div>
+  <div class="ag">▶ PERAN KRITIS: Pernyataan Budi Arie yang mengejutkan bahwa "Prabowo akan jatuh sebelum 2029" menjadi titik awal ditemukannya jejak penyadapan massal. Informasi seperti ini hanya bisa muncul jika seseorang memiliki akses ke data bocoran dari dalam — atau bagian dari jaringan yang menginginkan skenario itu terwujud.</div>
+</div>
+
+<div class="actor">
+  <div class="an">ROSAN ROSLANI & KONNIE BAKRIE</div>
+  <div class="at">▶ Pengusaha senior Indonesia | Jaringan konglomerat</div>
+  <div class="ag">▶ PERAN: Konflik hukum keduanya di 2024 soal "narasi Prabowo hanya menjabat 2 tahun" menjadi sinyal pertama yang terbaca publik bahwa ada skenario penggulingan yang sudah matang direncanakan. Hitungan "2 tahun" dari 2024 adalah persis November 2026 — sekarang. Konnie Bakrie sempat pergi ke Rusia, menambah dimensi internasional dalam peta perselisihan ini.</div>
+</div>
+
+<div class="sep">════════════════════════════════════════════════════</div>
+
+<!-- ════════════ LIMS DETAIL ════════════ -->
+<h2>🔵 BAGIAN G — TEKNIS OPERASI LIMS: 7 KATEGORI DATA BOCORAN</h2>
+
+<pre class="d"><span class="c">╔═══════════════════════════════════════════════════════════════════════╗</span>
+<span class="c">║          BAGAN ALUR VI: MEKANISME LIMS & ALUR DISTRIBUSI DATA         ║</span>
+<span class="c">╠═══════════════════════════════════════════════════════════════════════╣</span>
+<span class="c">║</span>  <span class="c">INFRASTRUKTUR SADAP:</span>                                               <span class="c">║</span>
+<span class="c">║</span>  Intersepsi sinyal BTS → SMS, panggilan suara, metadata lokasi       <span class="c">║</span>
+<span class="c">║</span>  Jalur seluler biasa (bukan enkripsi WhatsApp) → RENTAN TOTAL         <span class="c">║</span>
+<span class="c">║</span>  Sebagian alat sudah dipindahkan ke kelompok sipil pasca bocor        <span class="c">║</span>
+<span class="c">╠═══════════════════════════════════════════════════════════════════════╣</span>
+<span class="c">║</span>  <span class="y">7 KATEGORI DATA BOCORAN RING-1:</span>                                     <span class="c">║</span>
+<span class="c">║</span>  <span class="g">① Kebijakan Ekonomi Pra-Pengumuman</span>                                  <span class="c">║</span>
+<span class="c">║</span>    Rencana pajak baru · Mekanisme ekspor satu pintu · DHE              <span class="c">║</span>
+<span class="c">║</span>    Target sita lahan tambang ilegal · Rating Fitch                     <span class="c">║</span>
+<span class="c">║</span>    → Mafia pasar ambil ancang-ancang, raup untung duluan               <span class="c">║</span>
+<span class="c">║</span>                                                                        <span class="c">║</span>
+<span class="c">║</span>  <span class="g">② Operasi Copot & Angkat Pejabat</span>                                   <span class="c">║</span>
+<span class="c">║</span>    Daftar reshuffle · Nama calon Kapolri · Rapor merah pejabat        <span class="c">║</span>
+<span class="c">║</span>    → Jegal kandidat lurus · Lobi sebelum pengumuman                   <span class="c">║</span>
+<span class="c">║</span>                                                                        <span class="c">║</span>
+<span class="c">║</span>  <span class="g">③ Peta Kepercayaan Presiden</span>                                         <span class="c">║</span>
+<span class="c">║</span>    Siapa sering ditelepon · Siapa didengar · Siapa dimarahi/dijauhi   <span class="c">║</span>
+<span class="c">║</span>    → Pemetaan ring-dalam · Infiltrasi kuda Trojan · Adu domba         <span class="c">║</span>
+<span class="c">║</span>                                                                        <span class="c">║</span>
+<span class="c">║</span>  <span class="g">④ Daftar Target Pajak & Perampasan Aset</span>                             <span class="c">║</span>
+<span class="c">║</span>    Siapa oligarki sawit/tambang yang akan disita/dikejar pajaknya     <span class="c">║</span>
+<span class="c">║</span>    → Taipan pindah uang tunai raksasa SEBELUM aparat bergerak         <span class="c">║</span>
+<span class="c">║</span>                                                                        <span class="c">║</span>
+<span class="c">║</span>  <span class="g">⑤ Jadwal & Lokasi Real-Time Ring-1</span>                                  <span class="c">║</span>
+<span class="c">║</span>    Posisi presiden & menteri via sinyal BTS & ajudan                  <span class="c">║</span>
+<span class="c">║</span>    Siapa bertemu siapa, jam berapa, di mana — dipetakan LIVE          <span class="c">║</span>
+<span class="c">║</span>                                                                        <span class="c">║</span>
+<span class="c">║</span>  <span class="g">⑥ Retakan Konflik Internal Kabinet</span>                                  <span class="c">║</span>
+<span class="c">║</span>    Keluhan pribadi · Pertengkaran menteri · Urusan privat ring-1      <span class="c">║</span>
+<span class="c">║</span>    → Perlebar retakan · Lemahkan soliditas kabinet Prabowo            <span class="c">║</span>
+<span class="c">║</span>                                                                        <span class="c">║</span>
+<span class="c">║</span>  <span class="g">⑦ Peta Kawan & Lawan di Luar Istana</span>                                 <span class="c">║</span>
+<span class="c">║</span>    Ketua partai · DPR · Media · Ormas · LSM                           <span class="c">║</span>
+<span class="c">║</span>    → Siapa bisa dibeli · Siapa melawan · Atur narasi sabotase         <span class="c">║</span>
+<span class="c">╠═══════════════════════════════════════════════════════════════════════╣</span>
+<span class="c">║</span>  <span class="o">ALUR DISTRIBUSI DATA:</span>                                               <span class="c">║</span>
+<span class="c">║</span>  LIMS → <span class="o">LSP (Listyo + jaringan oknum Polri)</span>                          <span class="c">║</span>
+<span class="c">║</span>         ↓                                                              <span class="c">║</span>
+<span class="c">║</span>         → <span class="o">USER 1: Oligarki lokal</span> (sawit, tambang, mafia pajak)       <span class="c">║</span>
+<span class="c">║</span>         → <span class="o">USER 2: Lawan politik & jaringan kekuasaan lama</span>            <span class="c">║</span>
+<span class="c">║</span>         → <span class="o">USER 3: Transit SINGAPURA</span> → dijual ke AS, China, Singapura <span class="c">║</span>
+<span class="c">╚═══════════════════════════════════════════════════════════════════════╝</span></pre>
+
+<p>Kunci teknis yang perlu dipahami: kelemahan fatal para pejabat Indonesia adalah kebiasaan berkomunikasi lewat jalur seluler biasa karena dianggap aman, sementara WhatsApp dan aplikasi enkripsi relatif lebih terlindungi. LIMS bekerja persis di celah ini: mengintersepsi sinyal di level infrastruktur telekomunikasi, menembus enkripsi aplikasi, menyadap langsung dari menara BTS sebelum data terenkripsi oleh aplikasi.</p>
+
+<p>Yang membuat situasi ini lebih kritis: sebagian perangkat LIMS sudah berpindah tangan ke kelompok masyarakat sipil dan disembunyikan. Artinya, operasi penyadapan mungkin masih berjalan meski Listyo sudah ditangkap.</p>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ 4 SAYAP ════════════ -->
+<h2>🟣 BAGIAN H — 4 SAYAP OPERASI KOGNITIF</h2>
+
+<pre class="d"><span class="pu">╔═══════════════════════════════════════════════════════════════════════╗</span>
+<span class="pu">║           BAGAN ALUR VII: EMPAT SAYAP SERANGAN SERENTAK               ║</span>
+<span class="pu">╠══════════════════╦══════════════════╦══════════════════╦══════════════╣</span>
+<span class="pu">║  SAYAP 1         ║  SAYAP 2         ║  SAYAP 3         ║  SAYAP 4    ║</span>
+<span class="pu">║  LAPANGAN        ║  KOGNITIF        ║  KUDA TROJAN     ║  OPINI PAKAR║</span>
+<span class="pu">╠══════════════════╬══════════════════╬══════════════════╬══════════════╣</span>
+<span class="pu">║ Demo anarkis     ║ Influencer       ║ Penyusupan ke    ║ Akademisi   ║</span>
+<span class="pu">║ bayaran          ║ bayaran          ║ kabinet/ring-1   ║ bayaran     ║</span>
+<span class="pu">║                  ║                  ║                  ║             ║</span>
+<span class="pu">║ Sewa media lokal ║ Artis dibeli      ║ Oknum dipasang   ║ Lembaga     ║</span>
+<span class="pu">║ & internasional  ║                  ║ sengaja buka     ║ survei      ║</span>
+<span class="pu">║                  ║ Mahasiswa        ║ celah korupsi    ║             ║</span>
+<span class="pu">║ Bad framing      ║ diarahkan        ║                  ║ Ekonom      ║</span>
+<span class="pu">║ pemerintah       ║                  ║ Buat organisasi  ║             ║</span>
+<span class="pu">║                  ║ Ekonom &         ║ berantakan       ║ Politisi    ║</span>
+<span class="pu">║ Bakar properti,  ║ akademisi        ║ dari dalam       ║ busuk &     ║</span>
+<span class="pu">║ gedung pemerintah║ disewa           ║                  ║ partai opos ║</span>
+<span class="pu">╠══════════════════╩══════════════════╩══════════════════╩══════════════╣</span>
+<span class="pu">║  KOORDINASI: Data sadapan LIMS dipakai untuk MENYESUAIKAN serangan  ║</span>
+<span class="pu">║  dengan kelemahan-kelemahan internal yang sudah terpetakan           ║</span>
+<span class="pu">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="pu">║  TUJUAN AKHIR: DISTRUST MASSAL + POLARISASI EKSTREM                 ║</span>
+<span class="pu">║  → Rakyat membenci pemerintahnya sendiri                             ║</span>
+<span class="pu">║  → Narasi Indonesia gelap/hancur berulang setiap hari               ║</span>
+<span class="pu">║  → Mosi tidak percaya → rakyat turun ke jalan → chaos nasional      ║</span>
+<span class="pu">╚══════════════════════════════════════════════════════════════════════╝</span></pre>
+
+<p>Empat sayap ini tidak bekerja sendiri-sendiri — mereka dikoordinasikan secara presisi menggunakan peta kelemahan kabinet yang sudah terpetakan lewat data sadapan LIMS. Ketika sistem intelijen yang dimiliki operator mengetahui retakan-retakan internal di kabinet, mereka bisa menyusun serangan yang persis mengenai titik-titik paling rapuh.</p>
+
+<p>Ini bukan gerakan organik rakyat. Ini adalah strategi <em>test the water</em> yang sistematis: demo kecil-kecil dulu, uji reaksi aparat, uji reaksi publik, lalu eskalasi ke tahap yang lebih besar ketika kondisi sudah matang. Yogyakarta, November 2026, adalah salah satu implementasi dari playbook ini.</p>
+
+<div class="sep">════════════════════════════════════════════════════</div>
+
+<!-- ════════════ YOGYAKARTA ════════════ -->
+<h2>🔴 BAGIAN I — YOGYAKARTA: MEDAN REAKSI PASCA LISTYO TERTANGKAP</h2>
+
+<pre class="d"><span class="r">╔══════════════════════════════════════════════════════════════════════╗</span>
+<span class="r">║     BAGAN ALUR VIII: TIMELINE YOGYAKARTA & TEKANAN KE JOKOWI-GIBRAN  ║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="pk">║  [PRE-EVENT] Listyo Sigit Prabowo ditangkap → November 2026         ║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="r">║</span>  <span class="pk">Selasa, 10 November 2026 — Siang:</span>                                 <span class="r">║</span>
+<span class="r">║</span>  Aksi unjuk rasa berlangsung tertib di Kantor Gubernur DIY &        <span class="r">║</span>
+<span class="r">║</span>  Titik Nol Kilometer Yogyakarta hingga pukul 19.00 WIB              <span class="r">║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="r">║</span>  <span class="pk">Selasa, 10 November 2026 — 20.00 WIB:</span>                             <span class="r">║</span>
+<span class="r">║</span>  100-an orang berkumpul di depan Gedung DPRD DIY, Jl. Malioboro     <span class="r">║</span>
+<span class="r">║</span>  Serangan: petasan · molotov · batu ke area gedung DPRD              <span class="r">║</span>
+<span class="r">║</span>  → INDIKASI PROVOKATOR: Bawa molotov, senjata tajam, bensin         <span class="r">║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="r">║</span>  <span class="pk">Selasa, 10 November 2026 — 21.00 WIB:</span>                             <span class="r">║</span>
+<span class="r">║</span>  Polri dorong massa ke utara menuju Tugu Yogyakarta                 <span class="r">║</span>
+<span class="r">║</span>  Eskalasi merembet ke Bundaran UGM                                  <span class="r">║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="r">║</span>  <span class="pk">Rabu, 11 November 2026 — Dini Hari:</span>                               <span class="r">║</span>
+<span class="r">║</span>  154 orang diamankan oleh Polda DIY                                 <span class="r">║</span>
+<span class="r">║</span>  Barang bukti: 6 botol molotov · 7 botol bensin · senjata tajam     <span class="r">║</span>
+<span class="r">║</span>  · petasan · ketapel beramunisi gotri                                <span class="r">║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="r">║</span>  <span class="pk">Rabu, 11 November 2026 — 23.00 WIB:</span>                               <span class="r">║</span>
+<span class="r">║</span>  Kapolri Jenderal SUYUDI ARIO SETO (pengganti Listyo) tiba di Jogja <span class="r">║</span>
+<span class="r">║</span>  Didampingi Wakil Ketua DPR SUFMI DASKO AHMAD                       <span class="r">║</span>
+<span class="r">║</span>  Bertemu Kapolda DIY Irjen LANGGENG PURNOMO &                       <span class="r">║</span>
+<span class="r">║</span>  Wakapolda DIY Brigjen EDI JUNAIDI                                  <span class="r">║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="y">║</span>  <span class="y">RESPONS UGM:</span>                                                        <span class="y">║</span>
+<span class="y">║</span>  Rektor UGM Prof. Ova Emilia: Bundaran UGM adalah wilayah de facto  <span class="y">║</span>
+<span class="y">║</span>  UGM · Tolak segala kekerasan terhadap sivitas akademika            <span class="y">║</span>
+<span class="y">║</span>  UGM akan dampingi & berikan bantuan hukum untuk mahasiswa yang     <span class="y">║</span>
+<span class="y">║</span>  diamankan                                                           <span class="y">║</span>
+<span class="r">╠══════════════════════════════════════════════════════════════════════╣</span>
+<span class="r">║</span>  <span class="r">ANALISIS KRITIS:</span>                                                   <span class="r">║</span>
+<span class="r">║</span>  Demo Yogyakarta ini BUKAN gerakan organik mahasiswa biasa.          <span class="r">║</span>
+<span class="r">║</span>  Ini adalah respons operasional dari jaringan yang kepanikan         <span class="r">║</span>
+<span class="r">║</span>  setelah Listyo ditangkap. Targetnya jelas:                          <span class="r">║</span>
+<span class="r">║</span>  → Tekan Gibran (Wapres, anak Jokowi) & Jokowi                      <span class="r">║</span>
+<span class="r">║</span>  → Destabilisasi kota besar agar perhatian teralihkan               <span class="r">║</span>
+<span class="r">║</span>  → Uji kapasitas Polri era baru (Kapolri Suyudi) dalam menangani    <span class="r">║</span>
+<span class="r">║</span>    kekacauan tanpa Listyo                                            <span class="r">║</span>
+<span class="r">╚══════════════════════════════════════════════════════════════════════╝</span></pre>
+
+<h3>I.1 — Mengapa Yogyakarta?</h3>
+<p>Yogyakarta bukan dipilih secara acak. Ini adalah kota dengan konsentrasi perguruan tinggi tertinggi di Indonesia, populasi mahasiswa yang besar, dan secara historis sering menjadi barometer gerakan protes nasional. Membakar Yogyakarta adalah membakar simbol pendidikan dan demokrasi Indonesia sekaligus.</p>
+<p>Selain itu, Yogyakarta berada di bawah naungan Keraton dan Sri Sultan Hamengku Buwono X — figur yang memiliki pengaruh politik dan kultural yang sangat besar. Destabilisasi Yogyakarta adalah serangan tidak langsung terhadap legitimasi keistimewaan daerah dan simbolisme persatuan nasional.</p>
+
+<h3>I.2 — Siapa di Balik Provokasi?</h3>
+<p>Bukti kehadiran molotov, senjata tajam, bensin dalam jumlah terorganisir adalah tanda tangan yang tak bisa disembunyikan: ini bukan mahasiswa yang spontan marah. Ini adalah provokator profesional yang sudah dipersiapkan. Pola ini identik dengan yang terjadi di negara-negara Eropa sebelumnya — murni penyampaian aspirasi di siang hari, lalu mutasi menjadi kekerasan terorganisir di malam hari setelah provokator masuk ke dalam massa.</p>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+
+<!-- ════════════ BAGAN FINAL ════════════ -->
+<h2>🔴 BAGAN ALUR IX — GRAND DESIGN LENGKAP: DARI ATAS KE BAWAH</h2>
+
+<pre class="d"><span class="r">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="r">    │               G L O B A L   P O W E R   L A Y E R               │</span>
+<span class="r">    └────────────────────────────────────────────────────────────────-┘</span>
+<span class="r">         CIA/AMERICA          MOSSAD/ISRAEL         MSS/TIONGKOK</span>
+              <span class="r">│</span>                     <span class="r">│</span>                      <span class="r">│</span>
+<span class="r">    Destabilisasi       Teknologi LIMS         Kepentingan Proxy</span>
+              <span class="r">│</span>                     <span class="r">│</span>                      <span class="r">│</span>
+              <span class="r">└─────────────────────┼──────────────────────┘</span>
+                                    <span class="r">│</span>
+                   <span class="r">[ WEF · IMF · WORLD BANK · SOROS OSF ]</span>
+                   <span class="r">Dana ke media/LSM/aktivis Indonesia</span>
+                                    <span class="r">│</span>
+                                    <span class="dm">▼</span>
+<span class="o">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="o">    │               O L I G A R K I   L A Y E R                       │</span>
+<span class="o">    └─────────────────────────────────────────────────────────────────┘</span>
+<span class="o">    "9 NAGA" / TAIPAN TIONGHOA-INDONESIA</span>
+<span class="o">    Sawit Ilegal · Tambang/Nikel · BBM · Judi Online · Narkoba</span>
+<span class="o">    Under-invoicing · Transfer Pricing via SINGAPURA</span>
+    <span class="dm">│                              │</span>
+<span class="o">    Setoran upeti raksasa         Butuh data bocoran kebijakan</span>
+    <span class="dm">│                              │</span>
+    <span class="dm">└──────────────┬───────────────┘</span>
+                   <span class="dm">│</span>
+                   <span class="dm">▼</span>
+<span class="y">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="y">    │               J O K O W I   N E X U S                           │</span>
+<span class="y">    └─────────────────────────────────────────────────────────────────┘</span>
+<span class="y">    JOKO WIDODO — Presiden 2014–2024</span>
+<span class="y">    Hub global ↔ oligarki ↔ aparat keamanan</span>
+    <span class="dm">│         │            │            │</span>
+    <span class="dm">▼</span>         <span class="dm">▼</span>            <span class="dm">▼</span>            <span class="dm">▼</span>
+<span class="g">  LUHUT   HENDRO-    TITO KAR-   AHMAD</span>
+<span class="g">  BINSAR  PRIYONO    NAVIAN      LUTHFI</span>
+<span class="g">  Menko   Mantan     Mantan      Gubernur</span>
+<span class="g">  Marves  Kepala BIN Kapolri     Jateng</span>
+<span class="g">  "Proxy  "Olah      Mendagri    (mantan</span>
+<span class="g">  Engine" Data Sadap" Satgas MP  Kapolda)</span>
+    <span class="dm">│         │</span>
+    <span class="dm">└────┬────┘</span>
+         <span class="dm">│</span>  <span class="g">MANDAT OPERASIONAL</span>
+         <span class="dm">▼</span>
+<span class="g">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="g">    │   L I S T Y O   S I G I T   P R A B O W O                      │</span>
+<span class="g">    │   KAPOLRI 2021–2024 · MASIH MENJABAT 2024–2026                  │</span>
+<span class="r">    │   → D I T A N G K A P   N o v e m b e r   2 0 2 6               │</span>
+<span class="g">    └─────────────────────────────────────────────────────────────────┘</span>
+         <span class="dm">│           │            │</span>
+         <span class="dm">▼</span>           <span class="dm">▼</span>            <span class="dm">▼</span>
+<span class="c">    FERDY SAMBO   ANDIKA     JARINGAN OKNUM POLRI</span>
+<span class="c">    Satgas MP     PERKASA    Operator lapangan LIMS</span>
+<span class="c">    KM-50/KPPS   Mantan</span>
+<span class="c">                  Panglima</span>
+         <span class="dm">│</span>
+         <span class="dm">▼</span>
+<span class="c">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="c">    │   A L A T   S A D A P   L I M S                                 │</span>
+<span class="c">    │   6.000+ nomor · Ring-1 Presiden · Menteri · Pengusaha          │</span>
+<span class="c">    │   7 kategori data bocoran                                        │</span>
+<span class="c">    └──────────────────────┬──────────────────────────────────────────┘</span>
+              <span class="dm">┌─────────────┼──────────────────┐</span>
+              <span class="dm">▼</span>             <span class="dm">▼</span>                  <span class="dm">▼</span>
+<span class="bl">         OLIGARKI      SINGAPURA          LAWAN POLITIK</span>
+<span class="bl">         LOKAL         (Transit)          & JARINGAN</span>
+<span class="bl">         Beli akses    Jual ke AS/         KEKUASAAN LAMA</span>
+<span class="bl">         info kebij    China/Israel</span>
+              <span class="dm">└─────────────┼──────────────────┘</span>
+                           <span class="dm">│</span>
+                           <span class="dm">▼</span>
+<span class="pu">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="pu">    │   4 SAYAP OPERASI SERENTAK                                       │</span>
+<span class="pu">    │   ① Demo lapangan · ② Kognitif warfare · ③ Kuda Trojan · ④ Pakar│</span>
+<span class="pu">    └──────────────────────────────────────────────┬──────────────────┘</span>
+                                                   <span class="dm">▼</span>
+<span class="pk">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="pk">    │   T A R G E T   A K H I R                                        │</span>
+<span class="pk">    │   PRABOWO JATUH SEBELUM 2029                                     │</span>
+<span class="pk">    │   Presiden Pengganti: "Mantan Kapolri" (Listyo?) + Wakil         │</span>
+<span class="pk">    │   → Balik ke pola 10 tahun lalu: perampokan negara ugal-ugalan   │</span>
+<span class="pk">    └─────────────────────────────────────────────────────────────────┘</span>
+                                 <span class="dm">↕ REAKSI CEPAT PASCA LISTYO TERTANGKAP</span>
+<span class="r">    ┌─────────────────────────────────────────────────────────────────┐</span>
+<span class="r">    │   Y O G Y A K A R T A   R U S U H                                │</span>
+<span class="r">    │   10–11 November 2026 · 154 Diamankan · Molotov & Sajam         │</span>
+<span class="r">    │   Tekanan ke GIBRAN (Wapres) & JOKOWI                           │</span>
+<span class="r">    └─────────────────────────────────────────────────────────────────┘</span></pre>
+
+<div class="sep">════════════════════════════════════════════════════</div>
+
+<!-- ════════════ KESIMPULAN ════════════ -->
+<h2>⚡ KESIMPULAN & PROYEKSI</h2>
+
+<div class="conclusion">
+
+<h3 style="color:var(--red);border:none;padding:0;margin-bottom:10px;">TESIS UTAMA</h3>
+
+<p>Penangkapan Listyo Sigit bukan akhir dari cerita ini — ini adalah babak pembukaan dari konfrontasi yang jauh lebih besar. Prabowo kini berada di titik krusial: ini adalah momen untuk menggulung, membersihkan, dan memotong seluruh generasi pengkhianat tanpa belas kasihan. Jika tindakan tegas diambil segera dan menyeluruh, stabilitas nasional akan pulih. Jika ditunda atau setengah-setengah, jaringan ini akan bangkit kembali dalam wajah yang berbeda.</p>
+
+<div class="box-r">
+<span class="r">▶ PROYEKSI 1 — TEKANAN TERHADAP GIBRAN & JOKOWI:</span> Yogyakarta adalah sinyal bahwa jaringan ini tidak akan diam. Gibran sebagai Wakil Presiden adalah sasaran empuk — setiap instabilitas yang mengenai namanya secara otomatis melemahkan soliditas kabinet Prabowo dari dalam.
+</div>
+
+<div class="box-o">
+<span class="o">▶ PROYEKSI 2 — LIMS MASIH AKTIF:</span> Sebagian perangkat sadap sudah berpindah ke kelompok sipil. Ini berarti intelijen bocor mungkin masih mengalir meski Listyo sudah dalam tahanan. Reformasi menyeluruh atas operator telekomunikasi dan audit forensik LIMS adalah keharusan mendesak.
+</div>
+
+<div class="box-y">
+<span class="y">▶ PROYEKSI 3 — SINGAPURA SEBAGAI CELAH:</span> Selama Singapura tetap menjadi safe haven tanpa ekstradisi bagi uang dan data curian Indonesia, selama itu pula aktor-aktor ini bisa beroperasi dengan relatif aman. Tekanan diplomatik terhadap Singapura adalah variabel krusial yang belum disentuh.
+</div>
+
+<div class="box-g">
+<span class="g">▶ PROYEKSI 4 — ESKALASI DEMO BERIKUTNYA:</span> Pola yang terbaca menunjukkan Yogyakarta adalah uji coba. Jika penanganan lemah, eskalasi ke kota-kota besar lain — Jakarta, Surabaya, Bandung, Medan — adalah skenario yang sudah disiapkan.
+</div>
+
+<div class="box-c">
+<span class="c">▶ PROYEKSI 5 — PERANG OPINI AKAN MENINGKAT:</span> Pasca penangkapan Listyo, serangan kognitif akan meningkat dua kali lipat. Narasi "Prabowo otoriter," "demokrasi mati," dan "penangkapan Listyo adalah rekayasa" akan digeber habis-habisan di semua platform.
+</div>
+
+<p style="margin-top:14px;color:var(--yel);font-weight:bold;">Pesan penelitian ini jelas: jaringan konspirasi ini sudah telanjang, peta musuh sudah lengkap, dan satu pertanyaan tersisa — apakah tindakan radikal yang diperlukan akan diambil sekarang, sebelum nasi menjadi bubur.</p>
+
+</div>
+
+<div class="sep">════════════════════════════════════════════════════</div>
+
+<div class="box-c">
+<div style="color:var(--cyn);font-weight:700;margin-bottom:8px;">📋 INDEKS NAMA LENGKAP DALAM JARINGAN INI</div>
+<ul>
+<li><span class="r">CIA/Mossad/MSS</span> — Kekuatan intelijen global</li>
+<li><span class="r">WEF/IMF/World Bank/George Soros</span> — Elit finansial global</li>
+<li><span class="o">9 Naga/Taipan Tionghoa-Indonesia</span> — Oligarki domestik</li>
+<li><span class="y">Joko Widodo (Jokowi)</span> — Nexus kekuasaan 2014–2024</li>
+<li><span class="y">Gibran Rakabuming</span> — Wakil Presiden, anak Jokowi, posisi tertekan</li>
+<li><span class="g">Luhut Binsar Pandjaitan</span> — Menko Marves, aktor proxy pengendali</li>
+<li><span class="g">AM Hendropriyono</span> — Mantan Kepala BIN, arsitek operasi intelijen</li>
+<li><span class="g">Tito Karnavian</span> — Mantan Kapolri, Mendagri, pembangun fondasi Satgas MP</li>
+<li><span class="g">Listyo Sigit Prabowo</span> — Mantan Kapolri, operator LIMS, <span class="r">DITANGKAP</span></li>
+<li><span class="c">Ferdy Sambo</span> — Kadiv Propam, Satgas Merah Putih, KM-50, kematian KPPS</li>
+<li><span class="c">Ahmad Luthfi</span> — Mantan Kapolda Jateng → Gubernur Jateng (mutasi Jokowi)</li>
+<li><span class="c">Andika Perkasa</span> — Mantan Panglima TNI</li>
+<li><span class="y">Puan Maharani</span> — Ketua DPR, target dan aktor dalam peta kekuasaan</li>
+<li><span class="y">Budi Arie Setiadi</span> — Ketua Umum Projo, bunyikan "alarm prediksi"</li>
+<li><span class="y">Rosan Roslani & Konnie Bakrie</span> — Konflik "narasi 2 tahun" Prabowo</li>
+<li><span class="g">Suyudi Ario Seto</span> — Kapolri saat ini (pengganti Listyo)</li>
+<li><span class="g">Sufmi Dasko Ahmad</span> — Wakil Ketua DPR, hadir di Yogyakarta</li>
+<li><span class="g">Langgeng Purnomo</span> — Kapolda DIY</li>
+<li><span class="g">Edi Junaidi</span> — Wakapolda DIY</li>
+<li><span class="c">Ova Emilia</span> — Rektor UGM, respons terhadap kekerasan di bundaran UGM</li>
+</ul>
+</div>
+
+<div class="sep">──────────────────────────────────────────────────────</div>
+<div class="sm" style="text-align:center;">
+  PENELITIAN MANDIRI INDEPENDEN · November 2026<br>
+  Disusun berdasarkan analisis mandiri atas data yang tersedia untuk publik<br>
+  <span class="ts">lihatlahindonesiamu.substack.com</span>
+</div>
+
+</body>
+</html>
